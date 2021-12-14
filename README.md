@@ -1,6 +1,6 @@
 # algorithms
 
-My algorithm task solving
+Algorithm task solving
 
 Solved task:
 
