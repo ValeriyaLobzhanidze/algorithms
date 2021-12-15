@@ -1,7 +1,7 @@
 # algorithms
 
-Algorithm task solving
+Algorithm tasks solving
 
-Solved task:
+Solved tasks:
 
 1) Max rectangle search https://leetcode.com/problems/maximal-rectangle/
