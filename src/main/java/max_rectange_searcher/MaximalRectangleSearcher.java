@@ -5,44 +5,44 @@ import java.util.logging.Logger;
 
 /**
  * My decision for task https://leetcode.com/problems/maximal-rectangle/
- * <p>
+ *
  * For being able to find max rectangle, first of all we should teach our algorithm
  * how to search edges of rectangles.
- * <p>
+ *
  * I consider edge as one of several conditions:
- * <p>
+ *
  * 1) "1", "1", "0" <-- last "1" in this row is edge
- * <p>
+ *
  * 2) "1", "1", "0"
- * "1", "1", "0" <-- last "1" in this row is edge
- * <p>
+ *    "1", "1", "0" <-- last "1" in this row is edge
+ *
  * 3) "1", "1", "0"
- * "1", "1", "1" <-- second "1" in this row is edge, last "1" in this row is also edge
- * <p>
+ *    "1", "1", "1" <-- second "1" in this row is edge, last "1" in this row is also edge
+ *
  * 4) "1", "1", "1"
- * "1", "1", "0" <-- last "1" in this row is edge
- * <p>
+ *    "1", "1", "0" <-- last "1" in this row is edge
+ *
  * 5) "1", "0", "1"
- * "1", "1", "1" <-- second "1" in this row is edge
- * <p>
+ *    "1", "1", "1" <-- second "1" in this row is edge
+ *
  * 6) "1", "0", "1"
- * "1", "1", "0" <-- second "1" in this row is edge
- * <p>
+ *    "1", "1", "0" <-- second "1" in this row is edge
+ *
  * After we will find edge, we should:
- * <p>
+ *
  * 1) save current length of the sequence, which led us to this edge in special auxiliary matrix
  * (every time we found new "1", we save current length of sequence by adding
  * value from previous cell).
- * <p>
+ *
  * 2) fill data about all sub rectangles for current cell in another auxiliary matrix
  *  2.1) if i == 0, we just save in current cell one sub rectangle with square == currentSequenceLength
  *      and base == currentSequenceLength (base is the width of rectangle)
  *  2.2) if i != 0, we extract info about sub rectangles from upper cell:
  *      2.2.1) for all sub rectangle which has base <= currentSequenceLength we += their base and store as a
  *             sub rectangle in cur cell
- *      2.2.2) for all sub rectangle which has base >= currentSequenceLength we found its height and
+ *      2.2.2) for all sub rectangles which has base >= currentSequenceLength we found its height and
  *             *= currentSequenceLength
- * <p>
+ *
  * 3) every time we found new sub rectangle we check if its square > maxRectangle and update if it is
  */
 public class MaximalRectangleSearcher {
