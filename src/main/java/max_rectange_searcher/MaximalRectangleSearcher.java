@@ -1,6 +1,6 @@
 package max_rectange_searcher;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,8 +11,8 @@ public class MaximalRectangleSearcher {
     public int maximalRectangle(char[][] matrix) {
         int maxRectangle = 0;
 
-        List<Rectangle> prevRectangleList = new LinkedList<>();
-        List<Rectangle> curRectangleList = new LinkedList<>();
+        List<Rectangle> prevRectangleList = new ArrayList<>();
+        List<Rectangle> curRectangleList = new ArrayList<>();
 
         for (int i = 0; i < matrix.length; i++) {
 
@@ -68,8 +68,8 @@ public class MaximalRectangleSearcher {
                 }
             }
 
-            prevRectangleList = curRectangle != null ? curRectangleList : new LinkedList<>();
-            curRectangleList = new LinkedList<>();
+            prevRectangleList = curRectangle != null ? curRectangleList : new ArrayList<>();
+            curRectangleList = new ArrayList<>();
         }
 
         return maxRectangle;
