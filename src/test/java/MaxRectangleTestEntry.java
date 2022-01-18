@@ -1,4 +1,4 @@
-public class TestEntry {
+public class MaxRectangleTestEntry {
     private char[][] rectangle;
     private int maxSquare;
 

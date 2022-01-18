@@ -9,22 +9,22 @@ import java.io.InputStream;
 
 public class MaximalRectangleSearcherTest {
 
-    private TestEntry[] testRectangles;
+    private MaxRectangleTestEntry[] testEntries;
     private final MaximalRectangleSearcher maximalRectangleSearcher = new MaximalRectangleSearcher();
 
     @Before
     public void init() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         InputStream is = getClass().getResourceAsStream("/rectangles.json");
-        testRectangles = mapper.readValue(is, TestEntry[].class);
+        testEntries = mapper.readValue(is, MaxRectangleTestEntry[].class);
     }
 
     @Test
-    public void shouldReturnMaxSquare() {
-        for (int i = 0; i < testRectangles.length; i++) {
-            int maxSquare = maximalRectangleSearcher.maximalRectangle(testRectangles[i].getRectangle());
-            Assert.assertEquals("Test on " + i + " rectangle failed",
-                    maxSquare, testRectangles[i].getMaxSquare());
+    public void shouldReturnExpectedAnswer() {
+        for (int i = 0; i < testEntries.length; i++) {
+            int maxSquare = maximalRectangleSearcher.maximalRectangle(testEntries[i].getRectangle());
+            Assert.assertEquals("Test on " + i + " entry failed",
+                    maxSquare, testEntries[i].getMaxSquare());
         }
     }
 }
