@@ -40,14 +40,19 @@ public class MaximalRectangleSearcher {
                         if (upperRectangle.intersectsWith(curRectangle)) {
                             Rectangle newRectangle;
                             if (upperRectangle.inside(curRectangle) || curRectangle.inside(upperRectangle)) {
-                                Rectangle minRectangle = upperRectangle.getWidth() < curRectangle.getWidth() ? upperRectangle : curRectangle;
-                                newRectangle = new Rectangle(minRectangle.getStartX(), minRectangle.getEndX(), upperRectangle.getHeight() + 1);
+                                Rectangle minRectangle = upperRectangle.getWidth() < curRectangle.getWidth()
+                                        ? upperRectangle : curRectangle;
+                                newRectangle = new Rectangle(minRectangle.getStartX(),
+                                        minRectangle.getEndX(), upperRectangle.getHeight() + 1);
 
                             } else {
-                                Rectangle rightRectangle = curRectangle.getEndX() >= upperRectangle.getEndX() ? curRectangle : upperRectangle;
-                                Rectangle leftRectangle = rightRectangle.equals(curRectangle) ? upperRectangle : curRectangle;
+                                Rectangle rightRectangle = curRectangle.getEndX() >= upperRectangle.getEndX()
+                                        ? curRectangle : upperRectangle;
+                                Rectangle leftRectangle = rightRectangle.equals(curRectangle)
+                                        ? upperRectangle : curRectangle;
                                 int overlap = leftRectangle.getEndX() - rightRectangle.getStartX();
-                                newRectangle = new Rectangle(rightRectangle.getStartX(), rightRectangle.getStartX() + overlap, upperRectangle.getHeight() + 1);
+                                newRectangle = new Rectangle(rightRectangle.getStartX(),
+                                        rightRectangle.getStartX() + overlap, upperRectangle.getHeight() + 1);
                             }
 
                             curRectangleList.add(newRectangle);
