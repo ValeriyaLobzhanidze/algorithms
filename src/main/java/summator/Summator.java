@@ -18,6 +18,7 @@ public class Summator {
         int remainder = 0;
         ListNode head = l1;
         ListNode prevL1Node = l1;
+
         while (l1 != null) {
             int accumulator = l1.val + l2.val + remainder;
             if (accumulator > 9) {
